@@ -1,15 +1,8 @@
 
-// window.onload = function(){
-//   const btns = document.querySelectorAll('button');
-//   btns.forEach(btn =>{
-//     btn.addEventListener('click', (e) =>{
-//       console.log('eat penis') ;
-//     })
-//   })
-// }
-const inputMemory = [];
+let inputMemory = [];
 let calcTotal = 0;
 const regEx =/x|\+|\*|-|\//;
+let display = document.querySelector('#display');
 // const numberMemory = [];
 // const operatorMemory = [];
 
@@ -81,10 +74,15 @@ function evaluateInput(){
     }
   }else if(input.match(/[0-9]/)){
     inputMemory.push(input);
-
   }else if(input == "="){
     sortInputMemory();
+  }else if(input == "CE"){
+    ClearInputs();
+    input = '0.0';
+  }else if(input == "<"){
+    inputMemory = inputMemory.slice(0, len-1);
   }
+  updateDisplay(input);
 }
   
   
@@ -97,16 +95,26 @@ function sortInputMemory(){
     })
     while(nums.length > 1){
     calcTotal = operate(nums[0], nums[1], opers[0]);
+    calcTotal = Math.round(calcTotal * 100)/100;
     nums.splice(0,2,calcTotal);
     opers.splice(0,1);
-    console.log(nums, opers, calcTotal);
     }
+    updateDisplay(calcTotal);
 }
 
+function updateDisplay(input){
+  if(input == '='){
+    display.textContent = calcTotal;
+  }
+  else {
+    display.textContent = input;
+  }
+}
 
-
-
-
+function ClearInputs(){
+  calcTotal = 0;
+  inputMemory = [];
+}
 
 
 
