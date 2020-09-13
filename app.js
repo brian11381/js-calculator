@@ -179,59 +179,6 @@ function clearValues(){
   isLastOperator = false;
 }
 
-// function evaluateInput(){
-//   let input = this.textContent;
-//   const len = inputMemory.length;
-//   const lastInput =inputMemory[len-1];
-//   if(input.match(regEx)){
-//     if(len == 0 || lastInput.match(regEx)){ 
-//       console.log('ERROR');
-//     }else {
-//       inputMemory.push(input);
-//     }
-//   }else if(input.match(/[0-9]/)){
-//     inputMemory.push(input);
-//   }else if(input == "="){
-//     sortInputMemory();
-//   }else if(input == "CE"){
-//     ClearInputs();
-//     input = '0.0';
-//   }else if(input == "<"){
-//     inputMemory = inputMemory.slice(0, len-1);
-//   }
-//   updateDisplay(input);
-// }
-  
-  
-
-
-// function sortInputMemory(){
-//     let nums = inputMemory.join('').split(regEx).map(Number);
-//     let opers = inputMemory.filter(item =>{
-//       return item.match(regEx);
-//     })
-    // while(numArray.length > 1){
-    // calcTotal = operate(numArray[0], numArray[1], opArray[0]);
-    // calcTotal = Math.round(calcTotal * 100)/100;
-    // numArray.splice(0,2,calcTotal);
-    // opArray.splice(0,1);
-    // }
-    // updateDisplay(calcTotal);
-// }
-
-// function updateDisplay(input){
-//   if(input == '='){
-//     display.textContent = calcTotal;
-//   }
-//   else {
-//     display.textContent = input;
-//   }
-// }
-
-// function ClearInputs(){
-//   calcTotal = 0;
-//   inputMemory = [];
-// }
 
 
 
